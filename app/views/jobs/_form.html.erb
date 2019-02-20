@@ -1,15 +1,6 @@
 <%= simple_form_for @job, html: {multipart: true, class: "form-group" } do |f| %> 
    
-  <% if @job.errors.any? %>
-    <div class="well errors">
-      <h4><%= pluralize(@job.errors.count, "error") %> prevented this form from saving: </h4>
-      <% @job.errors.full_messages.each do |msg| %>
-        <ul>
-          <li class="text-danger"> <%= msg %> </li>
-          </ul>
-      <% end %>
-    </div>
-  <% end %>
+   <%= render 'shared/error_messages', job: @job %>
 
   <%= f.input :company_name, input_html: {class: "form-control"} %>
   <br>
@@ -27,6 +18,6 @@
   <br>
   <br>
   <%= f.input :how_to_apply, lable: "How to Apply", input_html: {class: "form-control"}, placeholder: "Input details on how to apply", hint: "e.g: a link" %>
-  <%= f.button :submit, class: "btn btn-primary" %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
 
 <% end %>

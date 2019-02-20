@@ -8,7 +8,7 @@
         <em>Posted on <%= (job.created_at.strftime("%a, %d, %Y")) %></em>  
       </div>
       <div class="panel-body">
-        <p><%= truncate(job.details, length: 100)%></p>
+        <p><%= truncate(job.details, length: 200)%></p>
         <p>Closing date: <strong><%= job.close_date.strftime("%b, %d, %Y") %></strong></p>
         <p> <%= link_to 'More...', job %> </p>
       </div>
@@ -16,5 +16,5 @@
   </div>
 <% end %>
 <br>
-<p> <%= link_to 'New Posting', new_job_path() %> </p>
+
 

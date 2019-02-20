@@ -10,11 +10,11 @@ class JobsController < ApplicationController
   end
 
   def new 
-    @job = current_recruiter.jobs.create()
+    @job = current_recruiter.jobs.build()
   end
 
   def create
-    @job = current_recruiter.jobs.create(job_params)
+    @job = current_recruiter.jobs.build(job_params)
     if @job.save 
       flash[:success] = "Job opening successfully created"
       redirect_to @job

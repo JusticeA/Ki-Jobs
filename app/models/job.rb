@@ -1,5 +1,4 @@
 class Job < ApplicationRecord
-  belongs_to :recruiter
   validates :company_name, presence: true
   validates :title, presence: true
   validates :details, presence: true, length: {minimum: 200}
@@ -7,4 +6,5 @@ class Job < ApplicationRecord
   validates :location, presence: true
   validates :close_date, presence: true
   validates :how_to_apply, presence: true
+  belongs_to :recruiter
 end

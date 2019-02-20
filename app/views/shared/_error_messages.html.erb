@@ -1,0 +1,10 @@
+<% if job.errors.any? %>
+    <div class="well">
+      <h5><%= pluralize(job.errors.count, "error") %> prevented this form from saving: </h5>
+      <ul>
+        <% job.errors.full_messages.each do |msg| %>
+          <li class="text-danger"> <%= msg %> </li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
