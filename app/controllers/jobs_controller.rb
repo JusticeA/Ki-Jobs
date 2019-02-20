@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   before_action :find_job, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_recruiter! 
   def index
     @jobs = Job.all.order("created_at DESC")
   end
@@ -10,11 +10,11 @@ class JobsController < ApplicationController
   end
 
   def new 
-    @job = Job.new()
+    @job = current_recruiter.jobs.create()
   end
 
   def create
-    @job = Job.new(job_params)
+    @job = current_recruiter.jobs.create(job_params)
     if @job.save 
       flash[:success] = "Job opening successfully created"
       redirect_to @job
@@ -49,6 +49,6 @@ class JobsController < ApplicationController
   end
   
   def job_params
-    params.require(:job).permit(:title, :details, :location, :requirement, :close_date, :how_to_apply, :company_name, :job_type)
+    params.require(:job).permit(:title, :details, :location, :requirement, :close_date, :how_to_apply, :company_name, :job_type, :recruiter_id)
   end 
 end
