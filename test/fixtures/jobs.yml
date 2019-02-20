@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  details: MyText
+  location: MyString
+  requirement: MyText
+  close_date: 2019-02-20 13:32:22
+  how_to_apply: MyText
+
+two:
+  title: MyString
+  details: MyText
+  location: MyString
+  requirement: MyText
+  close_date: 2019-02-20 13:32:22
+  how_to_apply: MyText
