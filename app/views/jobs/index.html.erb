@@ -1,10 +1,20 @@
 <h1>This is an index placeholder</h1>
+
 <% @jobs.each do |job| %>
-  <h2><%= job.title %></h2>
-  <em>Posted on <%= (job.created_at.strftime("%a, %d, %Y")) %></em>  
-  <p><%= truncate(job.details, length: 100)%></p>
-  <p>Closing date: <strong><%= job.close_date.strftime("%b, %d, %Y") %></strong></p>
-  <p> <%= link_to 'More...', job %> </p>
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2><%= job.title %></h2>
+        <em>Posted on <%= (job.created_at.strftime("%a, %d, %Y")) %></em>  
+      </div>
+      <div class="panel-body">
+        <p><%= truncate(job.details, length: 100)%></p>
+        <p>Closing date: <strong><%= job.close_date.strftime("%b, %d, %Y") %></strong></p>
+        <p> <%= link_to 'More...', job %> </p>
+      </div>
+    </div>
+  </div>
 <% end %>
 <br>
 <p> <%= link_to 'New Posting', new_job_path() %> </p>
+
