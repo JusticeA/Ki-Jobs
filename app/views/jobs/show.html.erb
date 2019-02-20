@@ -5,20 +5,21 @@
 
 <h3>Job Details: </h3>
 <p> <%= @job.details %> </p>
-
+<% if @job.job_type.present? %>
+  <p>Job type: <strong><%= @job.job_type %></strong></p>
+<% end %>
 <p>Location: <strong> <%= @job.location %> </strong></p>
-
+<br>
 <h3>Requirement: </h3>
 <p> <%= @job.requirement %> </p>
-
+<br>
 <h3>How to Apply</h3>
 <P> <%= @job.how_to_apply %> </P>
-
-<h4>Closing Date: </h4>
-<p><strong> <%= @job.close_date.strftime("%B, %d, %Y") %> </strong></p>
-
+<br>
+<h4>Closing Date: <small><strong> <%= @job.close_date.strftime("%B, %d, %Y") %> </strong></small></h4>
+<br>
 <h5>This was posted: <em> <%= time_ago_in_words(@job.created_at) %></em></h5>
-
+<br>
 
 <%= link_to 'Edit', edit_job_path(@job), class: "btn btn-primary" %>
 <%= link_to 'Delete', job_path(@job), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
