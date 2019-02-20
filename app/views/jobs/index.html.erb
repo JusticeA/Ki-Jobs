@@ -1,10 +1,10 @@
-<h1>This is an index placeholder</h1>
-
+<h1>Current Jobs</h1>
 <% @jobs.each do |job| %>
   <div class="panel-group">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h2><%= job.title %></h2>
+        <h2 class="text-primary"> <%= job.company_name %> </h2>
+        <h4> <%= job.title %> </h4>
         <em>Posted on <%= (job.created_at.strftime("%a, %d, %Y")) %></em>  
       </div>
       <div class="panel-body">

@@ -1,4 +1,5 @@
 class Job < ApplicationRecord
+  validates :company_name, presence: true
   validates :title, presence: true
   validates :details, presence: true, length: {minimum: 200}
   validates :requirement, presence: true, length: {minimum: 10}

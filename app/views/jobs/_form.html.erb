@@ -10,13 +10,21 @@
       <% end %>
     </div>
   <% end %>
-   
+
+  <%= f.input :company_name, input_html: {class: "form-control"} %>
+  <br>
   <%= f.input :title, input_html: {class: "form-control"} %>
+  <br>
   <%= f.input :details, input_html: {class: "form-control"}, placeholder: "Details about job" %>
+  <br>
   <%= f.input :location, input_html: {class: "form-control"}, placeholder: "Location of job" %>
+  <br>
   <%= f.input :requirement, input_html: {class: "form-control"}, placeholder: "Requirement to apply" %>
+  <br>
   <%= f.label :close_date %>
   <%= f.date_field :close_date, label: "Closing Date", input_html: {class: "form-control"} %>
+  <br>
+  <br>
   <%= f.input :how_to_apply, lable: "How to Apply", input_html: {class: "form-control"}, placeholder: "Input details on how to apply", hint: "e.g: a link" %>
   <%= f.button :submit, class: "btn btn-primary" %>
 
