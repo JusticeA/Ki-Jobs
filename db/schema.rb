@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_20_164913) do
+ActiveRecord::Schema.define(version: 2019_02_21_161005) do
 
   create_table "jobs", force: :cascade do |t|
     t.string "title"
@@ -34,6 +34,9 @@ ActiveRecord::Schema.define(version: 2019_02_20_164913) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "company_name"
+    t.text "company_profile"
+    t.text "address"
     t.index ["email"], name: "index_recruiters_on_email", unique: true
     t.index ["reset_password_token"], name: "index_recruiters_on_reset_password_token", unique: true
   end

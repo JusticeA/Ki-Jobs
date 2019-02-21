@@ -3,7 +3,11 @@
   <div class="panel-group">
     <div class="panel panel-default">
       <div class="panel-heading">
+      <% if job.company_name.present? %>
         <h2 class="text-primary"> <%= job.company_name %> </h2>
+      <% else %>
+        <h2 class="text-primary"> <%= job.recruiter.company_name %> </h2>
+      <% end %>
         <h4> <%= job.title %> </h4>
         <em>Posted on <%= (job.created_at.strftime("%a, %d, %Y")) %></em>  
       </div>

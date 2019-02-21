@@ -3,5 +3,8 @@ class Recruiter < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :jobs
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :authentication_keys => [ :company_name ]
+
+  validates :company_name, presence: true, uniqueness: {case_sensitive: false}
+  
 end

@@ -1,9 +1,11 @@
 <%= simple_form_for @job, html: {multipart: true, class: "form-group" } do |f| %> 
    
    <%= render 'shared/error_messages', job: @job %>
-
-  <%= f.input :company_name, input_html: {class: "form-control"} %>
+  
+  <h1><%= @job.recruiter.company_name %></h1>
   <br>
+  <%= f.input :company_name, input_html: {class: "form-control"}, placeholder: "Recruiter Name", hint: "maybe a third-party employer?" %>
+
   <%= f.input :title, input_html: {class: "form-control"} %>
   <br>
   <%= f.input :details, input_html: {class: "form-control"}, placeholder: "Details about job" %>
