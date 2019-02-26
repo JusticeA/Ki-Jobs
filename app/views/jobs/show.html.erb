@@ -26,7 +26,7 @@
 <br>
 <h4>Closing Date: <small><strong> <%= @job.close_date.strftime("%B, %d, %Y") %> </strong></small></h4>
 <br>
-<h5>This was posted: <em> <%= time_ago_in_words(@job.created_at) %></em></h5>
+<h5>This was posted: <em> <%= time_ago_in_words(@job.created_at) %></em> ago</h5>
 <br>
 
 <%= link_to 'Edit', edit_job_path(@job), class: "btn btn-primary" %>
