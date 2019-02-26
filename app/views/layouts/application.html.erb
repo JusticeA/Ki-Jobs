@@ -6,17 +6,20 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <%= favicon_link_tag asset_path("Ki.png"), rel: "icon", type: "image/png"%> 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <%= render 'layouts/header' %>
-    <div class="container-fluid">
-      <br>
-      <% flash.each do |name, msg|%>
-        <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
-      <% end %>
-      <%= yield %>
-    </div>
+    
+      <div class="container-fluid">
+        <br>
+        <% flash.each do |name, msg|%>
+          <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+        <% end %>
+        <%= yield %>
+      </div>
   </body>
 </html>
