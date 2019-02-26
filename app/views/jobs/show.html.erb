@@ -29,8 +29,10 @@
 <h5>This was posted: <em> <%= time_ago_in_words(@job.created_at) %></em> ago</h5>
 <br>
 
-<%= link_to 'Edit', edit_job_path(@job), class: "btn btn-primary" %>
-<%= link_to 'Delete', job_path(@job), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+<% if (recruiter_signed_in? && current_recruiter.id == @job.recruiter_id) %>
+  <%= link_to 'Edit', edit_job_path(@job), class: "btn btn-primary" %>
+  <%= link_to 'Delete', job_path(@job), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+<% end %>
 <%= link_to 'Home', root_path, class: "btn btn-default" %>
 
 <br>

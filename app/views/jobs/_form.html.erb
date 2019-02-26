@@ -1,6 +1,6 @@
 <%= simple_form_for @job, html: {multipart: true, class: "form-group" } do |f| %> 
    
-   <%= render 'shared/error_messages', job: @job %>
+  <%= render 'shared/error_messages', job: @job %>
   
   <h1><%= @job.recruiter.company_name %></h1>
   <br>

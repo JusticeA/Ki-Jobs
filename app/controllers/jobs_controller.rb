@@ -5,9 +5,14 @@ class JobsController < ApplicationController
     @jobs = Job.all.order("created_at DESC")
   end
 
+  def index_rec
+    @jobz = current_recruiter.jobs.all.order("created_at DESC")
+  end 
+
   def show
   
   end
+
 
   def new 
     @job = current_recruiter.jobs.build()
