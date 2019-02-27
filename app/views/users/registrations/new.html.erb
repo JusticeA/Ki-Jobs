@@ -4,14 +4,29 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :username,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "username" }%>
+    <br>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
+    <br>
+    <%= f.label :experience, "Years of work experience?"
+    %>
+    <%= f.number_field :experience,
+                required: false,
+                autofocus: true,
+                input_html: { autocomplete: "experience" }, in: 1.0..50.0 %>
+    <br>
+    <br>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
+    <br>
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
@@ -27,3 +42,5 @@
 <br>
 <hr>
 <%= render "users/shared/links" %>
+<br>
+<br>
