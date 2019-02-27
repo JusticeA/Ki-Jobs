@@ -33,6 +33,9 @@
     <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
   </div>
 <% end %>
+<h5 class="log">Not a recruiter? <p>Use here: <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-default" %></p></h5>
 <br>
+<br>
+<hr>
 
 <%= render "devise/shared/links" %>

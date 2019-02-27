@@ -1,4 +1,4 @@
-<h2>Log in</h2>
+<h2 class="h-dev">Log In</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
@@ -13,9 +13,10 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+    <%= f.button :submit, "Log in", class: "btn btn-primary"%>
   </div>
 <% end %>
-<h5 class="log">Potential Employer? <p>Use here: <%= link_to 'Log In', new_recruiter_session_path %></p></h5>
-
+<h5 class="log">Potential Employer? <p>Use here: <%= link_to 'Log-in', new_recruiter_session_path, class: "btn btn-default"%></p></h5>
+<br>
+<hr>
 <%= render "users/shared/links" %>

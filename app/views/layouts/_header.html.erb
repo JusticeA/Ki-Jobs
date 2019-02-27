@@ -18,7 +18,7 @@
         <% elsif user_signed_in? || recruiter_signed_in? %>
           <li><%= link_to "Home", root_path%></li>
         <% else %>
-          <li><%= link_to 'Sign Up', new_recruiter_registration_path %></li>
+          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
           <li><%= link_to 'Log In', new_user_session_path %></li>
         <% end %>
         <form class="navbar-form navbar-left">

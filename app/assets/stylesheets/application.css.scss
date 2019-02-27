@@ -241,6 +241,7 @@ hr {
     overflow: visible;
     background-color: $pri-color;
     border-top: 1px solid $pri-color;
+    clear: both;
 }
 
 h1 {
@@ -262,4 +263,10 @@ h1 {
   .navbar-form {
     border: none
   }
+}
+
+.log {
+  float: right;
+  position: relative;
+  bottom: 43px;
 }
