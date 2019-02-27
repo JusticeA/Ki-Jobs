@@ -9,16 +9,17 @@
         <span class="icon-bar"></span>
       </button> 
     </div>
-
+    <!-- THIS MIGHT THROW AN ERROR LATER -->
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if recruiter_signed_in? %>
           <li><%= link_to 'New Post', new_job_path() %></li>
+        <% elsif user_signed_in? || recruiter_signed_in? %>
           <li><%= link_to "Home", root_path%></li>
         <% else %>
           <li><%= link_to 'Sign Up', new_recruiter_registration_path %></li>
-          <li><%= link_to 'Log In', new_recruiter_session_path %></li>
+          <li><%= link_to 'Log In', new_user_session_path %></li>
         <% end %>
         <form class="navbar-form navbar-left">
           <div class="form-group">
@@ -26,14 +27,24 @@
           </div>
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
-        <% if recruiter_signed_in?  %>
+        <% if recruiter_signed_in? || user_signed_in? %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
           <ul class="dropdown-menu">
+          <% if recruiter_signed_in? %>
             <li> <%= link_to 'Edit Profile', edit_recruiter_registration_path %> </li>
-            <li><%= link_to 'My Jobs', rec_jobs_path(@jobz) %></li>
+          <% else %>
+            <li> <%= link_to "Edit Profile", edit_user_registration_path %> </li>  
+          <% end %>
+          <% if recruiter_signed_in? %>
+            <li><%= link_to 'My Posts', rec_jobs_path(@jobz) %></li>
             <li role="separator" class="divider"></li>
+          <% end %>
+          <% if recruiter_signed_in? %>
             <li><%= link_to 'Sign Out', destroy_recruiter_session_path, method: :delete %></li> 
+          <% else %>
+          <li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> </li>
+          <% end %>
           </ul>
         </li>
         <% end %> 

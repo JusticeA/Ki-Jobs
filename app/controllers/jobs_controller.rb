@@ -1,6 +1,8 @@
 class JobsController < ApplicationController
   before_action :find_job, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_recruiter! 
+  before_action :authenticate_recruiter!, except: [:index, :show]
+  # before_action :authenticate_user!
+
   def index
     @jobs = Job.all.order("created_at DESC")
   end
@@ -12,7 +14,6 @@ class JobsController < ApplicationController
   def show
   
   end
-
 
   def new 
     @job = current_recruiter.jobs.build()
@@ -54,6 +55,6 @@ class JobsController < ApplicationController
   end
   
   def job_params
-    params.require(:job).permit(:title, :details, :location, :requirement, :close_date, :how_to_apply, :company_name, :job_type, :recruiter_id)
+    params.require(:job).permit(:title, :details, :location, :requirement, :close_date, :how_to_apply, :company_name, :job_type, :recruiter_id, :user_id)
   end 
 end
