@@ -1,16 +1,20 @@
 class JobsController < ApplicationController
   before_action :find_job, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_recruiter!, except: [:index, :show]
+  before_action :authenticate_recruiter!, except: [:index, :show, :landing]
   # before_action :authenticate_user!
 
   def index
-    @jobs = Job.all.order("created_at DESC")
+    @jobs = Job.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
   end
 
   def index_rec
-    @jobz = current_recruiter.jobs.all.order("created_at DESC")
+    @jobz = current_recruiter.jobs.paginate(:page => params[:page], per_page: 5).order("created_at DESC")
   end 
 
+  def landing
+
+  end 
+  
   def show
   
   end

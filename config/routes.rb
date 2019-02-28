@@ -18,5 +18,5 @@ Rails.application.routes.draw do
       get "/jobs/", to: "jobs#index_rec", as: "rec"
     end 
   end 
-  root "jobs#index"
+  root "jobs#landing"
 end
