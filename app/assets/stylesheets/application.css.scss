@@ -195,10 +195,13 @@ body {
 .navbar-right {
   margin-right: -50px;
 }
-
+.panel {
+  background-color: #fff0;
+}
 .panel-default {
   .panel-heading {
     border-bottom: 2px dotted rgba(255, 0, 0, 0.603);
+    background-color: #f5f5f569;
   }
 }
 
