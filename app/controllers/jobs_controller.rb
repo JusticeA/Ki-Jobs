@@ -49,7 +49,7 @@ class JobsController < ApplicationController
   def destroy
     @job.destroy
     flash[:danger] = "Successfully deleted"
-    redirect_to root_path
+    redirect_to jobs_path
   end
  
   private 
