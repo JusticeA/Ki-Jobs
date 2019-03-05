@@ -15,22 +15,32 @@
       <ul class="nav navbar-nav navbar-right">
         <% if recruiter_signed_in? || user_signed_in? %>
            <% if current_page?("http://localhost:3000/") %>
-            <li> <%= link_to 'Jobs', jobs_path, class: "btn btn-primary" %> </li>
+            <li> <%= link_to jobs_path, class: "btn btn-primary" do %> 
+            <small>Jobs</small><%= image_tag 'jobs.svg', size: "40x23", alt: "Jobs" %>
+          <% end %>
+          </li>
          <% end %>
-          <% if current_page?("http://localhost:3000/jobs") || current_page?("http://localhost:3000/users/edit") || current_page?("http://localhost:3000/recruiters/edit")%>
-            <li><%= link_to "Home", root_path%></li>
+          <% if current_page?("http://localhost:3000/jobs") || current_page?("http://localhost:3000/users/edit") || current_page?("http://localhost:3000/recruiters/edit") %>
+            <li><%= link_to root_path, class: "btn btn-primary" do %> 
+            <small>Home</small><%= image_tag 'home.svg', size: "40x23", alt: "Jobs" %>
+          <% end %></li>
           <% end %>
         <% else %>
-          <li> <%= link_to 'Jobs', jobs_path, class: "btn btn-primary" %> </li>
+          <li> <%= link_to jobs_path, class: "btn btn-primary" do %> 
+            <small>Jobs</small><%= image_tag 'jobs.svg', size: "40x23", alt: "Jobs" %>
+          <% end %>
+          </li>
           <li> <%= link_to 'Sign Up', new_recruiter_registration_path %> </li>
           <li> <%= link_to 'Log In', new_recruiter_session_path %> </li>
         <% end %>
-        <% if recruiter_signed_in?  %>
-          <li><%= link_to 'New Post', new_job_path() %></li>
+        <% if recruiter_signed_in? %>
+          <li><%= link_to new_job_path(), class: "btn btn-primary" do %> 
+            <small>New Post</small><%= image_tag 'new.svg', size: "40x23", alt: "Jobs" %>
+          <% end %></li>
         <% end %>
         <% if recruiter_signed_in? || user_signed_in? %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile<%= image_tag 'profile.svg', size: "40x23" %> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><small>Profile </small> <%= image_tag 'profile.svg', size: "40x23" %> <span class="caret"></span></a>
           <ul class="dropdown-menu">
           <% if recruiter_signed_in? %>
             <li> <%= link_to 'Edit Profile', edit_recruiter_registration_path %> </li>
@@ -54,7 +64,7 @@
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Static for now">
             <div class="input-group-btn">
-              <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+              <button type="submit" class="btn btn-default"><span><%= image_tag 'search.svg', size: 15 %></span></button>
             </div>
             </div>
             <div class="pro-pic clearfix">

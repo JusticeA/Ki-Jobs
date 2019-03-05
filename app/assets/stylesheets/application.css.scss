@@ -17,6 +17,7 @@
 @import "bootstrap";
 
 $pri-color: #355C7D;
+$head-color: rgba(255, 255, 255, 0.788);
 $sec-color: rgb(197, 80, 92);
 $let-color: #e0c6c9;
 $bor-color: rgb(60, 50, 68);
@@ -63,7 +64,7 @@ body {
   height: 12%;
   width: 100px;
   max-width: 120px;
-  background-color: $pri-color;
+  background-color: $head-color;
   border-radius: 50%;
   position: fixed;
   margin-left: -10px;
@@ -83,20 +84,20 @@ body {
   border: none;
   border-radius: 0;
   z-index: 1;
-  background-color: $pri-color;
+  background-color: $head-color;
   height: 9%;
   .navbar-form {
     padding: 7px 15px;
     margin-top: 5px;
     margin-bottom: 8px;
     .form-control {
-      background-color: $pri-color;
+      background-color: $head-color;
       border: 1px solid $bor-color;
       color: $let-color;
     }
     .btn-default {
       color: $a-color;
-      background-color: $pri-color;
+      background-color: $head-color;
       border-color: $bor-color;
       &:hover {
         color: $hvl-color;
@@ -111,7 +112,7 @@ body {
     padding: 0px 0px;
     margin-top: 6px;
     a {
-      background-color: $pri-color;
+      background-color: $head-color;
       color: $a-color;
       border: 1px solid $bor-color;
       border-radius: 10px;
@@ -128,7 +129,7 @@ body {
     a {
       &:hover, &:focus, &:visited {
         color: $hvl-color;
-        background-color: $pri-color;
+        background-color: rgba(29, 43, 100, 0.226);
       }
     }
   }
@@ -153,13 +154,14 @@ body {
 
 .open  {
   .dropdown-menu {
-  background-color: $pri-color;
+  background-color: $head-color;
   padding: 9px 14px;
+  border: none;
   .divider {
     height: 1px;
     margin: 5px 0;
     overflow: hidden;
-    background-color: $pri-color;
+    background-color: $head-color;
 }
 }
 }
@@ -169,10 +171,11 @@ body {
     width: 95%;
     margin-left: 35px;
     margin-top: 5px;
-    background-color: $pri-color;
+    background: $head-color;
     padding: 20px;
+    border: none;
     .dropdown-menu {
-      background-color: $pri-color;
+      background-color: $head-color;
       padding: 9px 14px;
       .divider {
       display: none;
