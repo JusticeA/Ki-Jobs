@@ -5,6 +5,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
   include Accessible
   skip_before_action :check_user, except: [:new, :create]
+=begin
+  def create
+    user = User.create!(user_params)
+    session[:user_id] = user.id
+    redirect_to root_path
+  end 
+
+  private
+
+  def user_params
+    params.require(:user).permit(:email, :username, :password, :picture)
+  end 
+=end 
   # GET /resource/sign_up
   # def new
   #   super

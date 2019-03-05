@@ -17,7 +17,7 @@
            <% if current_page?("http://localhost:3000/") %>
             <li> <%= link_to 'Jobs', jobs_path, class: "btn btn-primary" %> </li>
          <% end %>
-          <% if current_page?("http://localhost:3000/jobs") %>
+          <% if current_page?("http://localhost:3000/jobs") || current_page?("http://localhost:3000/users/edit") || current_page?("http://localhost:3000/recruiters/edit")%>
             <li><%= link_to "Home", root_path%></li>
           <% end %>
         <% else %>
@@ -30,7 +30,7 @@
         <% end %>
         <% if recruiter_signed_in? || user_signed_in? %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile<%= image_tag 'profile.svg', size: "40x23" %> <span class="caret"></span></a>
           <ul class="dropdown-menu">
           <% if recruiter_signed_in? %>
             <li> <%= link_to 'Edit Profile', edit_recruiter_registration_path %> </li>
@@ -55,6 +55,18 @@
               <input type="text" class="form-control" placeholder="Static for now">
             <div class="input-group-btn">
               <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+            </div>
+            <div class="pro-pic clearfix">
+            <% if user_signed_in? &&current_user.picture.attached? %>
+              <%= link_to edit_user_registration_path do %>
+                <%= image_tag url_for(current_user.picture), size: 40, class: "p-pic" %>
+              <% end %>
+              <% elsif user_signed_in? && !current_user.picture.attached? %>
+              <%= link_to edit_user_registration_path do %>
+                <%= image_tag ("propic.svg"), size: 40, class: "p-pic" %>
+               <% end %>
+            <% end %>
             </div>
           </form>
         <% end %>

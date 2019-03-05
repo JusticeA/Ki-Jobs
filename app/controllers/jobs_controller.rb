@@ -12,7 +12,7 @@ class JobsController < ApplicationController
   end 
 
   def landing
-
+    
   end 
   
   def show
