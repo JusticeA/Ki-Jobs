@@ -4,6 +4,8 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.label :picture "Profile Picture", hint: "e.g: company logo"%>
+    <%= f.file_field :picture %>
     <%= f.input :company_name,
                 required: true,
                 autofocus: true,

@@ -6,5 +6,5 @@ class Recruiter < ApplicationRecord
          :recoverable, :rememberable, :validatable, :authentication_keys => [ :company_name, :email ]
 
   validates :company_name, presence: true, uniqueness: {case_sensitive: false}
-  
+  has_one_attached :picture
 end

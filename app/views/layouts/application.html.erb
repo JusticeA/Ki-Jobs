@@ -4,7 +4,6 @@
     <title>Board</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <%= favicon_link_tag asset_path("Ki.png"), rel: "icon", type: "image/png"%> 
@@ -14,14 +13,14 @@
 
   <body>
     <%= render 'layouts/header' %>
-      <div class="side-bar">
+      <div class="side-logo">
         <%= link_to root_path do %>
           <%= image_tag 'Kii.svg', size: "48" %>
         <% end %>  
       </div>
       <div class="container-fluid">
         <br>
-        <% flash.each do |name, msg|%>
+        <% flash.each do |name, msg| %>
           <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
         <% end %>
         <%= yield %>

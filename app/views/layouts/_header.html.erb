@@ -42,20 +42,18 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><small>Profile </small> <%= image_tag 'profile.svg', size: "40x23" %> <span class="caret"></span></a>
           <ul class="dropdown-menu">
-          <% if recruiter_signed_in? %>
-            <li> <%= link_to 'Edit Profile', edit_recruiter_registration_path %> </li>
-          <% else %>
-            <li> <%= link_to "Edit Profile", edit_user_registration_path %> </li>  
-          <% end %>
-          <% if recruiter_signed_in? %>
-            <li><%= link_to 'My Posts', rec_jobs_path(@jobz) %></li>
-            <li role="separator" class="divider"></li>
-          <% end %>
-          <% if recruiter_signed_in? %>
-            <li><%= link_to 'Sign Out', destroy_recruiter_session_path, method: :delete %></li> 
-          <% else %>
-          <li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> </li>
-          <% end %>
+            <% if recruiter_signed_in? %>
+              <li> <%= link_to 'Edit Profile', edit_recruiter_registration_path %> </li>
+              <li><%= link_to 'My Posts', rec_jobs_path(@jobz) %></li>
+              <li role="separator" class="divider"></li>
+            <% else %>
+              <li> <%= link_to "Edit Profile", edit_user_registration_path %> </li>  
+            <% end %>
+            <% if recruiter_signed_in? %>
+              <li><%= link_to 'Sign Out', destroy_recruiter_session_path, method: :delete %></li> 
+            <% else %>
+              <li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> </li>
+            <% end %>
           </ul>
         </li>
         <% end %> 
@@ -72,10 +70,20 @@
               <%= link_to edit_user_registration_path do %>
                 <%= image_tag url_for(current_user.picture), size: 40, class: "p-pic" %>
               <% end %>
-              <% elsif user_signed_in? && !current_user.picture.attached? %>
+            <% elsif user_signed_in? && !current_user.picture.attached? %>
               <%= link_to edit_user_registration_path do %>
                 <%= image_tag ("propic.svg"), size: 40, class: "p-pic" %>
-               <% end %>
+              <% end %>
+            <% else %>
+            <% if recruiter_signed_in? && current_recruiter.picture.attached? %>
+              <%= link_to edit_recruiter_registration_path do %>
+                <%= image_tag url_for(current_recruiter.picture), size: 40, class: "p-pic" %>
+              <% end %>
+            <% elsif recruiter_signed_in? && !current_recruiter.picture.attached? %>
+              <%= link_to edit_recruiter_registration_path do %>
+                <%= image_tag 'propic.svg', size: 40, class: "p-pic" %>
+            <% end %>
+            <% end %>
             <% end %>
             </div>
           </form>

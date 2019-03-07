@@ -4,7 +4,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.label :picture %>
+    <%= f.label :picture "Profile Picture"%>
     <%= f.file_field :picture %>
     <br>
     <br>
@@ -39,6 +39,7 @@
   <div class="form-actions">
     <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
   </div>
+
 <h5 class="log">Potential Employer? <p>Use here: <%= link_to 'Sign up', new_recruiter_registration_path, class: "btn btn-default" %></p></h5>
 
 <% end %>
