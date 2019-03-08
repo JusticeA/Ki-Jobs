@@ -58,9 +58,9 @@
         </li>
         <% end %> 
         <% if recruiter_signed_in? || user_signed_in? %>
-          <form class="navbar-form navbar-left">
+          <%= form_tag search_jobs_path, method: :get, role: "search", class: "navbar-form navbar-left" do %>
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Static for now">
+              <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search" %>
             <div class="input-group-btn">
               <button type="submit" class="btn btn-default"><span><%= image_tag 'search.svg', size: 15 %></span></button>
             </div>
@@ -86,7 +86,7 @@
             <% end %>
             <% end %>
             </div>
-          </form>
+          <% end %>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->

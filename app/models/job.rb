@@ -1,4 +1,5 @@
 class Job < ApplicationRecord
+  searchkick word_middle: [:company_name, :title, :details, :location, :requirement, :close_date]
   validates :title, presence: true
   validates :details, presence: true, length: {minimum: 100}
   validates :requirement, presence: true, length: {minimum: 10}

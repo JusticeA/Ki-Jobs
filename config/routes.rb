@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :jobs do
     collection do 
       get "/jobs/", to: "jobs#index_rec", as: "rec"
+      get "search"
     end 
   end 
   root "jobs#landing"

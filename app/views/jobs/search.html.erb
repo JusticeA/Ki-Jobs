@@ -1,0 +1,30 @@
+<h1 class="pull-left">Search Results</h1>
+<hr>
+<%= link_to jobs_path, class: "pull-right far fa-arrow-alt-circle-left btn btn-primary" do %>
+  <span>Back</span>
+<% end %>
+
+<br>
+<br>
+<% @jobs.each do |job| %>
+    <div class="clearfix panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+      <% if job.company_name.present? %>
+        <h2 class="text-primary"> <%= job.company_name %> </h2>
+      <% else %>
+        <h2 class="text-primary"> <%= job.recruiter.company_name %> </h2>
+      <% end %>
+        <h4> <%= job.title %> </h4>
+        <p class="text-right clearfix">Posted on <%= (job.created_at.strftime("%a, %d, %Y")) %></p>  
+      </div>
+      <div class="panel-body">
+        <p><%= truncate(job.details, length: 200)%></p>
+        <p>Closing date: <strong><%= job.close_date.strftime("%b, %d, %Y") %></strong></p>
+        <p> <%= link_to 'More...', job %> </p>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+<br>
