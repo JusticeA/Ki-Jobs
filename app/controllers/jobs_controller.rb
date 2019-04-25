@@ -4,7 +4,6 @@ class JobsController < ApplicationController
   # before_action :authenticate_user!
   def search
     if params[:search].present?
-      Job.reindex
       @jobs = Job.paginate(:page => params[:page], per_page: 10).order("created_at DESC").search params[:search], fields: [:company_name, :title, :details, :location, :requirement, :close_date], match: :word_middle
     else 
       @jobs = Job.paginate(:page => params[:page], per_page: 10).order("created_at DESC")
