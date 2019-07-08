@@ -4,7 +4,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.label :picture, hint: "e.g: company logo"%>
+    <%= f.label :picture, "Profile picture", hint: "e.g: company logo"%>
     <%= f.file_field :picture %>
     <%= f.input :company_name,
                 required: true,
